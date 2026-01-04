@@ -1,0 +1,13 @@
+section {
+  background: #111;
+  color: white;  
+  width: 70%;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px cadetblue;
+}
+img {
+    width: 70%;
+    margin: 40px auto;
+}
