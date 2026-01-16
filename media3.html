@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Science & Math Mega Learning Website</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+        <style>
+            *{
+                box-sizing:border-box;
+                margin:0;
+                padding:0;
+                font-family:'Roboto',sans-serif;
+            }
+            html{
+                scroll-behavior:smooth;
+            }
+            body{
+                background:#f4f6f8;
+                color:#333;
+                line-height:1.8;
+            }
+            body.dark{
+                background:#121212;
+                color:#eee;
+            }
+
+            /* Progress Bar */
+            #progressBar{
+                position:fixed;
+                top:0;left:0;
+                height:6px;
+                width:0%;
+                background:#7ea52a;
+                z-index:2000;
+            }
+
+            /* Hamburger */
+            .hamburger{
+                position:fixed;
+                top:15px;left:15px;
+                font-size:30px;
+                cursor:pointer;
+                color:#7ea52a;
+                z-index:3000;
+            }
+
+            /* Dark Mode */
+            .dark-toggle{
+                position:fixed;
+                top:15px;right:15px;
+                padding:8px 16px;
+                border:none;
+                border-radius:20px;
+                background:#7ea52a;
+                color:white;
+                cursor:pointer;
+                z-index:3000;
+            }
+
+            /* Sidenav */
+            .sidenav{
+                height:100%;
+                width:0;
+                position:fixed;
+                top:0;left:0;
+                background:#7ea52a;
+                overflow-x:hidden;
+                transition:.4s;
+                padding-top:60px;
+                z-index:2500;
+            }
+            .sidenav a{
+                display:block;
+                padding:12px 25px;
+                color:white;
+                text-decoration:none;
+                font-size:18px;
+            }
+            .sidenav a:hover{
+                background:#5a7a20
+            }
+            .sidenav .close{
+                position:absolute;
+                top:15px;right:20px;
+                font-size:30px;
+                cursor:pointer;
+            }
+
+            /* Main */
+            .main{
+                padding:40px;
+                max-width:1200px;
+                margin:auto;
+            }
+            h1{
+                text-align:center;
+                color:#7ea52a;
+                font-size:3em;
+                margin-bottom:30px;
+            }
+            h2{
+                margin:40px 0 20px;
+                color:#5a7a20;
+            }
+            h3{
+                margin:25px 0 10px;
+                color:#4a6820;
+            }
+            p{
+                margin-bottom:16px;
+            }
+
+            /* Cards */
+            .card{
+                background:white;
+                padding:30px;
+                border-radius:18px;
+                margin-bottom:50px;
+                box-shadow:0 8px 20px rgba(0,0,0,.1);
+            }
+            body.dark .card{
+                background:#1e1e1e;
+            }
+
+            /* Chapter */
+            .chapter-toggle{
+                width:100%;
+                padding:12px;
+                border:none;
+                border-radius:12px;
+                background:#7ea52a;
+                color:white;
+                font-size:18px;
+                cursor:pointer;
+                margin-top:20px;
+            }
+            .chapter-content{
+                display:none;
+                margin-top:20px;
+            }
+
+            /* Quiz */
+            .mini-quiz{
+                background:#eaf2dc;
+                padding:15px;
+                border-radius:12px;
+                margin:25px 0;
+            }
+            .mini-quiz button{
+                margin:5px;
+                padding:8px 14px;
+                border:none;
+                border-radius:18px;
+                background:#7ea52a;
+                color:white;
+                cursor:pointer;
+            }
+
+            /* Images */
+            .images{
+                display:flex;
+                flex-wrap:wrap;
+                gap:15px;
+                justify-content:center;
+                margin:25px 0;
+            }
+            .images img{
+                width:300px;
+                height:200px;
+                object-fit:cover;
+                border-radius:15px;
+            }
+
+            /* Bottom Button */
+            .bottom-btn{
+                display:block;
+                margin:80px auto;
+                padding:14px 30px;
+                border:none;
+                border-radius:25px;
+                background:#7ea52a;
+                color:white;
+                font-size:18px;
+                cursor:pointer;
+            }
+
+            /* Certificate */
+            .certificate{
+                border:5px solid #7ea52a;
+                padding:40px;
+                text-align:center;
+                border-radius:20px;
+                margin-top:60px;
+            }
+
+            /* Audio */
+            audio{
+                display:block;
+                margin:30px auto;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="progressBar"></div>
+
+        <span class="hamburger" onclick="openNav()">☰</span>
+        <button class="dark-toggle" onclick="toggleDark()">🌙</button>
+
+        <div id="nav" class="sidenav">
+            <span class="close" onclick="closeNav()">&times;</span>
+            <a href="#science">🦠Science</a>
+            <a href="#math">📐Math</a>
+            <a href="#experiments">🧪Experiments</a>
+            <a href="#certificate">🎑Certificate</a>
+        </div>
+
+        <div class="main">
+
+        <h1>Science & Math Mega Learning Hub</h1>
+
+        <button class="bottom-btn" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})">
+        Go to Bottom ⬇
+        </button>
+
+        <audio controls autoplay loop>
+            <source src="michel.mp3" type="audio/mp3">
+        </audio>
+
+        <!-- SCIENCE -->
+        <div id="science" class="card">
+            <h2>🔬 Science</h2>
+
+            <button class="chapter-toggle">Physics & The Universe</button>
+            <div class="chapter-content">
+                <p>Physics explains motion, energy, forces, and the structure of the universe. It connects falling apples to orbiting planets.</p>
+                <p>Newton’s laws describe motion and forces. Einstein expanded this with relativity.</p>
+                <p>Quantum physics explores particles smaller than atoms.</p>
+
+                <div class="mini-quiz">
+                    <p><strong>Quick Check:</strong> What force pulls objects toward Earth?</p>
+                    <button onclick="checkMini(this,true)">Gravity</button>
+                    <button onclick="checkMini(this,false)">Magnetism</button>
+                    <p class="feedback"></p>
+                </div>
+
+                    <p>Physics powers rockets, satellites, phones, and computers.</p>
+                    <p>Understanding physics helps us predict natural events and build technology.</p>
+                </div>
+
+                <button class="chapter-toggle">Chemistry & Matter</button>
+                <div class="chapter-content">
+                    <p>Chemistry studies atoms, molecules, and reactions.</p>
+                    <p>Everything around us is made of chemical compounds.</p>
+                    <p>Reactions release energy, create color changes, and form new substances.</p>
+
+                    <div class="mini-quiz">
+                    <p><strong>Quick Check:</strong> H2O is known as?</p>
+                    <button onclick="checkMini(this,true)">Water</button>
+                    <button onclick="checkMini(this,false)">Oxygen</button>
+                    <p class="feedback"></p>
+                    </div>
+
+                    <p>Chemistry explains cooking, medicine, batteries, and materials.</p>
+                </div>
+
+                <div class="images">
+                <img src="https://cdn.pixabay.com/photo/2017/01/31/20/42/laboratory-2022461_1280.jpg">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTokdt14ivy1uGliJbeJkZE8FgjB0qgPii2Wg&s">
+            </div>
+        </div>
+
+        <!-- MATH -->
+        <div id="math" class="card">
+            <h2>📐 Mathematics</h2>
+
+            <button class="chapter-toggle">Numbers & Patterns</button>
+            <div class="chapter-content">
+                <p>Math is the language of logic.</p>
+                <p>Numbers allow counting, measuring, and predicting.</p>
+                <p>Patterns appear everywhere in nature.</p>
+
+            <div class="mini-quiz">
+                <p><strong>Quick Check:</strong> 7 + 8 = ?</p>
+                <button onclick="checkMini(this,true)">15</button>
+                <button onclick="checkMini(this,false)">14</button>
+                <p class="feedback"></p>
+            </div>
+
+                <p>Math helps design bridges, games, and computers.</p>
+            </div>
+
+            <div class="images">
+                <img src="https://mp.moonpreneur.com/math-corner/wp-content/uploads/2023/08/the-riemann-hypothesis.png">
+            </div>
+        </div>
+
+        <!-- EXPERIMENTS -->
+        <div id="experiments" class="card">
+            <h2>⚗️ Experiments</h2>
+            <p>Experiments turn ideas into reality.</p>
+            <p>They build curiosity and problem-solving skills.</p>
+            <p>Try experiments safely with supervision.</p>
+
+            <ul>
+                <li>Volcano reaction</li>
+                <li>Crystal growing</li>
+                <li>Egg osmosis</li>
+                <li>Plant growth</li>
+            </ul>
+        </div>
+
+        <!-- CERTIFICATE -->
+        <div id="certificate" class="card certificate">
+            <h2>🏆 Certificate of Completion</h2>
+            <p>This certifies that</p>
+            <h3>YOU</h3>
+            <p>have completed the</p>
+            <p><strong>Science & Math Learning Program</strong></p>
+            <button onclick="window.print()">Download Certificate</button>
+            </div>
+
+        </div>
+
+        <script>
+        function openNav(){document.getElementById("nav").style.width="260px"}
+        function closeNav(){document.getElementById("nav").style.width="0"}
+
+        function toggleDark(){document.body.classList.toggle("dark")}
+
+        window.addEventListener("scroll",()=>{
+        const scrollTop=document.documentElement.scrollTop;
+        const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+        document.getElementById("progressBar").style.width=(scrollTop/height)*100+"%";
+        });
+
+        document.querySelectorAll(".chapter-toggle").forEach(btn=>{
+        btn.onclick=()=> {
+        const c=btn.nextElementSibling;
+        c.style.display=c.style.display==="block"?"none":"block";
+        };
+        });
+
+        function checkMini(btn,correct){
+        const f=btn.parentElement.querySelector(".feedback");
+        f.textContent=correct?"✅ Correct!":"❌ Try again";
+        f.style.color=correct?"green":"red";
+        }
+        </script>
+
+    </body>
+</html>
