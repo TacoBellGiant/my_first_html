@@ -1,11 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Innovator</title>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            min-height: 100vh;
+            padding-top: 120px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* Fixed navigation */
+        .button-container {
+            position: fixed;
+            top: 20px;
+            z-index: 1000;
+
+            display: flex;
+            gap: 15px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn {
+            padding: 10px 22px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+
+            background: #30c90e;
+            color: white;
+
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #0ca3ff;
+            transform: translateY(-2px);
+        }
+
+        #header {
+            text-align: center;
+            font-family: cursive;
+            background: linear-gradient(135deg, #30c90e, #0ca3ff);
+            color: white;
+            padding: 30px 60px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            max-width: 600px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Content boxes */
+        .box {
+            width: 100%;
+            max-width: 900px;
+            height: 320px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
+        }
+
+        .box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .box.active {
+            box-shadow: 0 0 0 4px #0ca3ff, 0 12px 30px rgba(0,0,0,0.25);
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="button-container">
+        <button class="btn" onclick="goToBox('box1')">About Me</button>
+        <button class="btn" onclick="goToBox('box2')">Ideas</button>
+        <button class="btn" onclick="goToBox('box3')">Innovator</button>
+    </div>
+
+    <h1 id="header"><strong>The Innovator</strong></h1>
+
+    <p>Welcome to the space where creativity meets technology. Discover, learn, and innovate!</p>
+
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <div id="box3" class="box"></div>
+
+    <script>
+        function goToBox(id) {
+            document.querySelectorAll('.box').forEach(box => {
+                box.classList.remove('active');
+            });
+
+            const target = document.getElementById(id);
+            target.classList.add('active');
+
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.box').forEach(box => {
+            observer.observe(box);
+        });
+    </script>
 </body>
 </html>

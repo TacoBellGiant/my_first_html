@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Innovator</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Buttons container */
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, color 0.3s;
+            background-color: #30c90e;
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #0ca3ff;
+            transform: translateY(-2px);
+        }
+
+        #header {
+            text-align: center;
+            font-family: 'Cursive', sans-serif;
+            background: linear-gradient(135deg, #30c90e, #0ca3ff);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        #header:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+            max-width: 600px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Buttons -->
+    <div class="button-container">
+        <button class="btn">Innovator🎑</button>
+        <button class="btn">Ideas💡</button>
+        <button class="btn">About Me😁</button>
+    </div>
+
+    <!-- Header -->
+    <h1 id="header"><strong>The Innovator</strong></h1>
+
+    <!-- Paragraph -->
+    <p>Welcome to the space where creativity meets technology. Discover, learn, and innovate!</p>
+</body>
+</html>
