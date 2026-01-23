@@ -15,17 +15,36 @@
             color: rgb(0, 21, 255);
             text-transform: capitalize;
         }
-        .heding {
+        #heding {
             font-family: fantasy;
             font-size: large;
             color: rgb(47, 255, 0);
             text-decoration: dotted;
+            display: none;
+        }
+        .button {
+            background-color: rgb(255, 234, 0);
+            border-radius: 20px;
+            text-size-adjust: inherit;
+            font-family: serif;
         }
     </style>
 </head>
 <body>
     <h1 id="titl">Book Club</h1>
     <p class="heading">Books are fun for some people, but not for others.</p>
-    <p class="heding">There are books for all ages and subjects.</p>
+    <button class="button" onclick=toggleParagraph()>Hide Paragraph</button>
+    <p id="heding" >There are books for all ages and subjects.</p>
+    <script>
+        function toggleParagraph() {
+            const para = document.getElementById("heding");
+            if (para.style.display == "none") {
+                para.style.display = "block";
+            } 
+            else {
+                para.style.display ="none";
+            }
+        }
+    </script>
 </body>
 </html>
