@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Box Model</title>
+
+<style>
+/* Always recommended */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* MARGIN AREA */
+.learning {
+    background-color: rgb(20, 228, 76);   /* CONTENT */
+    text-align: center;
+    font-family: monospace;
+    font-size: 15px;
+
+    padding: 20px;                        /* PADDING */
+    border: 4px solid black;              /* BORDER */
+    margin: 30px 60px;                    /* MARGIN */
+
+    outline: 4px dashed red;              /* shows margin area */
+}
+
+#smth {
+    background-color: beige;
+    text-align: center;
+    font-family: cursive;
+
+    padding: 25px;
+    border: 4px solid black;
+    margin: 30px 60px;
+
+    outline: 4px dashed blue;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Hi</h1>
+
+<p class="learning">
+    Today I’m learning how the box model works
+</p>
+
+<p id="smth">
+    I did exciting stuff in school and watched movies.
+</p>
+
+</body>
+</html>
