@@ -106,6 +106,13 @@ button:hover {
     gap: 20px;
 }
 
+/* CLICKABLE CARD LINK */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .card {
     background: #f1f2f6;
     padding: 20px;
@@ -166,10 +173,35 @@ iframe {
 <h2>Foods From Different Countries</h2>
 
 <div class="card-container">
-    <div class="card"><h3>🇮🇹 Italy</h3><p>Pizza, pasta, gelato</p></div>
-    <div class="card"><h3>🇯🇵 Japan</h3><p>Sushi, ramen</p></div>
-    <div class="card"><h3>🇲🇽 Mexico</h3><p>Tacos, burritos</p></div>
-    <div class="card"><h3>🇮🇳 India</h3><p>Curry, rice</p></div>
+
+    <a href="italy.html" class="card-link">
+        <div class="card">
+            <h3>🇮🇹 Italy</h3>
+            <p>Pizza, pasta, gelato</p>
+        </div>
+    </a>
+
+    <a href="japan.html" class="card-link">
+        <div class="card">
+            <h3>🇯🇵 Japan</h3>
+            <p>Sushi, ramen</p>
+        </div>
+    </a>
+
+    <a href="mexico.html" class="card-link">
+        <div class="card">
+            <h3>🇲🇽 Mexico</h3>
+            <p>Tacos, burritos</p>
+        </div>
+    </a>
+
+    <a href="india.html" class="card-link">
+        <div class="card">
+            <h3>🇮🇳 India</h3>
+            <p>Curry, rice</p>
+        </div>
+    </a>
+
 </div>
 </div>
 

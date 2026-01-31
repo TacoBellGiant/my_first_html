@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italian Food</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            color: #c0392b;
+        }
+
+        .flag {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+            color: #27ae60;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .food-card {
+            background: #fdf2e9;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .food-card h3 {
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #e74c3c, #27ae60);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="flag">🇮🇹</div>
+    <h1>Italian Food</h1>
+
+    <p>
+        Italian cuisine is loved around the world for its simple ingredients,
+        rich flavors, and comforting dishes. Italian food often focuses on
+        fresh vegetables, cheese, olive oil, and pasta.
+    </p>
+
+    <h2>Popular Italian Foods 🍕</h2>
+
+    <div class="food-grid">
+        <div class="food-card">
+            <h3>🍕 Pizza</h3>
+            <p>Classic flatbread topped with tomato sauce, cheese, and toppings.</p>
+        </div>
+
+        <div class="food-card">
+            <h3>🍝 Pasta</h3>
+            <p>Noodles served with sauces like marinara, alfredo, or pesto.</p>
+        </div>
+
+        <div class="food-card">
+            <h3>🧀 Lasagna</h3>
+            <p>Layered pasta with meat, cheese, and rich tomato sauce.</p>
+        </div>
+
+        <div class="food-card">
+            <h3>🍨 Gelato</h3>
+            <p>Italian-style ice cream known for its smooth texture.</p>
+        </div>
+    </div>
+
+    <!-- ✅ FIXED BACK BUTTON -->
+    <div class="center">
+        <a href="foodwebsite.html" class="back-btn">⬅ Back to Home</a>
+    </div>
+
+</div>
+
+</body>
+</html>
