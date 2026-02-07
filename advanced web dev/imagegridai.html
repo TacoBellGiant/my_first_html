@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Learning Lab</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #333;
+        }
+
+        .section {
+            border: 2px dashed #aaa;
+            padding: 10px;
+            margin-bottom: 30px;
+            background: white;
+        }
+
+        img {
+            width: 200px;
+            height: 150px;
+            margin: 5px;
+        }
+
+        /* ===== DISPLAY TYPES ===== */
+
+        /* 1️⃣ BLOCK */
+        .block-example img {
+            display: block;
+        }
+
+        /* 2️⃣ INLINE-BLOCK */
+        .inline-block-example img {
+            display: inline-block;
+        }
+
+        /* 3️⃣ FLEX */
+        .flex-example {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* 4️⃣ GRID */
+        .grid-example {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BLOCK -->
+    <h2>🧱 display: block</h2>
+    <div class="section block-example">
+        <img src="https://media.istockphoto.com/id/1550071750/photo/green-tea-tree-leaves-camellia-sinensis-in-organic-farm-sunlight-fresh-young-tender-bud.jpg">
+        <img src="https://www.shutterstock.com/image-photo/sun-sets-behind-mountain-ranges-600nw-2479236003.jpg">
+        <img src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg">
+    </div>
+
+    <!-- INLINE-BLOCK -->
+    <h2>📦 display: inline-block</h2>
+    <div class="section inline-block-example">
+        <img src="https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg">
+        <img src="https://thumbs.dreamstime.com/b/autumn-nature-landscape-colorful-forest-autumn-nature-landscape-colorful-forest-morning-sunlight-131400332.jpg">
+    </div>
+
+    <!-- FLEX -->
+    <h2>🧲 display: flex</h2>
+    <div class="section flex-example">
+        <img src="https://images.panda.org/assets/images/pages/welcome/orangutan_1600x1000_279157.jpg">
+        <img src="https://media.istockphoto.com/id/1317323736/photo/a-view-up-into-the-trees-direction-sky.jpg">
+        <img src="https://media.istockphoto.com/id/610041376/photo/beautiful-sunrise-over-the-sea.jpg">
+    </div>
+
+    <!-- GRID -->
+    <h2>🔲 display: grid</h2>
+    <div class="section grid-example">
+        <img src="https://media.istockphoto.com/id/1550071750/photo/green-tea-tree-leaves-camellia-sinensis-in-organic-farm-sunlight-fresh-young-tender-bud.jpg">
+        <img src="https://www.shutterstock.com/image-photo/sun-sets-behind-mountain-ranges-600nw-2479236003.jpg">
+        <img src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg">
+        <img src="https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg">
+        <img src="https://thumbs.dreamstime.com/b/autumn-nature-landscape-colorful-forest-autumn-nature-landscape-colorful-forest-morning-sunlight-131400332.jpg">
+    </div>
+
+</body>
+</html>
