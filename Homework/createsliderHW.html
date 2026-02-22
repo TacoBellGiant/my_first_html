@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>City Carousel</title>
+
+  <!-- Bootstrap 3 CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Bootstrap 3 JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    .title {
+        text-align: center;
+        font-family: cursive;
+        font-size: 45px;
+        color: black;
+        background-color: rgb(0, 166, 255);
+        border-radius: 10px;
+        margin: 35px;
+        padding: 20px;
+    }
+    .slide-container {
+      height: 400px;     
+      overflow: hidden;
+    }
+    .slide-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2 class="title">City Carousel</h2>
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <div class="slide-container">
+          <img src="https://www.travelcenter.uk/blog/wp-content/uploads/2018/12/Los-Angeles-City-Guide.jpg" alt="Los Angeles">
+        </div>
+        <div class="carousel-caption">
+          <h3>Los Angeles</h3>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="slide-container">
+          <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSn667-7eTB8vR_HMD50GHAeDlWZqBR-xSk1OdrCmvlqr2SldgK5GHriUt41XpwZBGIIDhV9zqxyyAnjuX1s7N7Dxo&s=19" alt="Chicago">
+        </div>
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="slide-container">
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwep-kWAzWkdSuAfne0LrDuWVUYxod3U6hXRTuofLyyo4nXn59zWhE4qrXzhLIteFLX-e-PzNo_iMqSMm8GcYJEjPXakCJApD-2BZUIsOl2fD0CZhowSQ-uYBn7Jky7vRkMJYEDyx=w697-h402-n-k-no" alt="New York">
+        </div>
+        <div class="carousel-caption">
+          <h3>New York</h3>
+        </div>
+      </div>
+
+    </div>
+
+    
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+  </div>
+</div>
+
+</body>
+</html>
