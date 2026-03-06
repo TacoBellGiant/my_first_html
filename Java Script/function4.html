@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odd or Even Checker</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+input{
+    padding: 8px;
+    font-size: 16px;
+}
+
+button{
+    padding: 8px 15px;
+    font-size: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#result{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Odd or Even Number Checker</h2>
+
+<input type="text" id="numberInput" placeholder="Enter a number">
+<button onclick="oddOrEven()">Check</button>
+
+<p id="result"></p>
+
+<script>
+
+function oddOrEven() {
+
+    let input = document.getElementById("numberInput").value.trim();
+    let result = document.getElementById("result");
+
+    // Check if empty
+    if(input === ""){
+        result.textContent = "Please enter a number.";
+        return;
+    }
+
+    // Check if input is not a number
+    if(isNaN(input)){
+        result.textContent = "Invalid input. Please enter numbers only.";
+        return;
+    }
+
+    let number = Number(input);
+
+    // Limit extremely large numbers
+    if(number > 1000000000 || number < -1000000000){
+        result.textContent = "Number is too large. Please enter a smaller number.";
+        return;
+    }
+
+    // Check odd or even
+    if(number % 2 === 0){
+        result.textContent = number + " is an EVEN number.";
+    } 
+    else{
+        result.textContent = number + " is an ODD number.";
+    }
+}
+
+</script>
+
+</body>
+</html>
