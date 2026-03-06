@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam's Portfolio</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f8;
+    color:#333;
+}
+
+header{
+    background:#1f2937;
+    color:white;
+    padding:40px;
+    text-align:center;
+}
+
+nav{
+    background:#111827;
+    text-align:center;
+    padding:10px;
+}
+
+nav a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+section{
+    padding:40px;
+    max-width:900px;
+    margin:auto;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#1f2937;
+    color:white;
+    margin-top:40px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Sam's Portfolio</h1>
+<p>Student • Beginner Developer • Future Engineer</p>
+</header>
+
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+<h2>About Me</h2>
+<p>Hello! I'm Sam. I enjoy learning how to code and building small projects. 
+This portfolio shows some of the things I'm working on while learning web development.</p>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+<h3>Project 1</h3>
+<p>A simple website I built while learning HTML.</p>
+</div>
+
+<div class="card">
+<h3>Project 2</h3>
+<p>A coding project I'm working on.</p>
+</div>
+
+<div class="card">
+<h3>Project 3</h3>
+<p>More projects coming soon!</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: sam@email.com</p>
+</section>
+
+<footer>
+<p>© 2026 Sam's Portfolio</p>
+</footer>
+
+</body>
+</html>
