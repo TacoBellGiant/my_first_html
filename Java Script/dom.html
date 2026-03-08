@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .alert, .alert2, .alert3 {
+            color: rgb(19, 121, 211);
+            background-color: rgb(255, 255, 255);
+            border: 4px solid black;
+            border-radius: 20px;
+            margin: 20px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">Welcome</h1>
+    <p>Hello</p>
+    <p>How are you?</p>
+
+    <script>
+        let div = document.createElement('div');
+        div.id = "paragraph";
+        div.className = "alert";
+        div.innerHTML = "<p>Congrats! You have created a div. </p>";
+        document.body.append(div);
+
+        let div2 = document.createElement('div');
+        div2.id = "paragraph2";
+        div2.className = "alert2";
+        div2.innerHTML = "<p> You've created a second div, Way to go! </p>"
+        document.body.append(div2);
+
+        let div3 = document.createElement('div');
+        div3.id = "paragraph3";
+        div3.className = "alert3";
+        div3.innerHTML = "<p>Hi, I'll write in this later</p>";
+        document.body.append(div3)
+
+        let h1 = document.createElement('h1')
+        h1.id = "Text"
+        h1.className = "MoreText"
+        h1.innerHTML = "<h1>Hello Everyone</h1>";
+        h1.style.backgroundColor = "orange"
+        h1.style.borderRadius = "25px"
+        h1.style.textAlign = "center"
+        document.body.append(h1);
+
+        let heading = document.getElementById("heading");
+        heading.innerHTML = '&#128512;'
+
+        document.getElementById("paragraph3").innerHTML = "<p>Some text, we are doing awesome!</p>";
+
+
+        document.querySelector('header p').innerHTML = "<strong> Good Job! </strong>"
+    </script>
+</body>
+</html>
