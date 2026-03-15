@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@ h2 {
 
 .buttons {
     padding: 20px;
-    width: 300px;
+    width: 320px;
     margin: auto;
     text-align: center;
 }
@@ -29,27 +30,41 @@ button{
     margin:4px;
 }
 
-/* COOL MOVING PATTERN */
+/* SUPER COOL MOVING CYBER GRID PATTERN */
 
 .pattern{
-    background: repeating-linear-gradient(
-        45deg,
-        red 0px,
-        red 15px,
-        yellow 15px,
-        yellow 30px
-    );
-    background-size: 300px 300px;
-    animation: movePattern 2s linear infinite;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,255,255,0.7) 0px,
+            rgba(0,255,255,0.7) 2px,
+            transparent 2px,
+            transparent 40px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,0,255,0.7) 0px,
+            rgba(255,0,255,0.7) 2px,
+            transparent 2px,
+            transparent 40px
+        ),
+        linear-gradient(135deg,#0f0f2a,#000000);
+
+    background-size:200px 200px;
+
+    animation:coolMove 4s linear infinite;
 }
 
-@keyframes movePattern{
-    from{
-        background-position:0 0;
+@keyframes coolMove{
+
+    0%{
+        background-position:0 0,0 0,0 0;
     }
-    to{
-        background-position:300px 300px;
+
+    100%{
+        background-position:200px 200px,-200px 200px,0 0;
     }
+
 }
 
 </style>
@@ -79,14 +94,17 @@ button{
 let div = document.querySelector(".rectangle");
 
 function resetShape(){
+
     div.classList.remove("pattern");
 
     div.style.width="200px";
     div.style.height="200px";
     div.style.border="1px solid black";
+
     div.style.borderLeft="";
     div.style.borderRight="";
     div.style.borderBottom="";
+
     div.style.clipPath="";
     div.style.borderRadius="0%";
     div.style.background="";
@@ -110,10 +128,12 @@ function makeRect(){
 }
 
 function makeTri(){
+
     resetShape();
 
     div.style.width="0";
     div.style.height="0";
+
     div.style.borderLeft="100px solid transparent";
     div.style.borderRight="100px solid transparent";
     div.style.borderBottom="200px solid black";
@@ -150,4 +170,3 @@ div.onmouseleave=function(){
 
 </body>
 </html>
-
