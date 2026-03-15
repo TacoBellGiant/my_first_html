@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Solar System</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background: linear-gradient(to bottom, #000000, #020024);
+    color:white;
+    text-align:center;
+}
+
+header{
+    background:#111;
+    padding:20px;
+}
+
+h1{
+    font-size:40px;
+}
+
+.planets{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.planet{
+    background:#111;
+    border-radius:10px;
+    padding:20px;
+    transition: transform 0.3s;
+}
+
+.planet:hover{
+    transform:scale(1.05);
+}
+
+.planet h2{
+    margin-top:0;
+}
+
+footer{
+    margin-top:20px;
+    padding:15px;
+    background:#111;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>🌞 Our Solar System</h1>
+<p>Explore the planets orbiting our Sun</p>
+</header>
+
+<section class="planets">
+
+<div class="planet">
+<h2>☀️ Sun</h2>
+<p>The Sun is the star at the center of our solar system. It provides light and heat for all planets.</p>
+</div>
+
+<div class="planet">
+<h2>☿ Mercury</h2>
+<p>The smallest planet and the closest to the Sun. It has very hot days and very cold nights.</p>
+</div>
+
+<div class="planet">
+<h2>♀ Venus</h2>
+<p>Venus is the hottest planet. It has thick clouds that trap heat.</p>
+</div>
+
+<div class="planet">
+<h2>🌍 Earth</h2>
+<p>The only known planet with life. About 71% of Earth's surface is covered with water.</p>
+</div>
+
+<div class="planet">
+<h2>♂ Mars</h2>
+<p>Known as the Red Planet because of its reddish surface caused by iron oxide.</p>
+</div>
+
+<div class="planet">
+<h2>♃ Jupiter</h2>
+<p>The largest planet in the solar system. It has a giant storm called the Great Red Spot.</p>
+</div>
+
+<div class="planet">
+<h2>♄ Saturn</h2>
+<p>Famous for its beautiful rings made of ice and rock.</p>
+</div>
+
+<div class="planet">
+<h2>♅ Uranus</h2>
+<p>An ice giant that rotates on its side.</p>
+</div>
+
+<div class="planet">
+<h2>♆ Neptune</h2>
+<p>The farthest planet from the Sun and known for very strong winds.</p>
+</div>
+
+</section>
+
+<footer>
+<p>🚀 Solar System Explorer</p>
+</footer>
+
+</body>
+</html>
