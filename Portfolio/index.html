@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineer Portfolio</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #020617;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Canvas background */
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.glow {
+    color: #38bdf8;
+    text-shadow: 0 0 20px #38bdf8;
+}
+
+/* Glass effect */
+.glass {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+}
+
+/* Cards */
+.card {
+    background: rgba(255,255,255,0.05);
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 30px #38bdf8;
+}
+
+/* Social Links */
+.socials {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.socials a {
+    display: block;
+    margin: 10px 0;
+    color: #38bdf8;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* Cursor glow */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: fixed;
+    background: #38bdf8;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 9999;
+}
+
+/* Sections */
+section {
+    padding: 80px 0;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+<div class="cursor"></div>
+
+<!-- Social Links -->
+<div class="socials">
+    <a href="https://github.com/" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark fixed-top">
+    <div class="container">
+        <span class="navbar-brand glow">AI Portfolio</span>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="glass">
+        <h1>Hello, I'm <span class="glow">Your Name</span></h1>
+        <h3>I build <span class="glow typing"></span></h3>
+        <a href="#projects" class="btn btn-outline-info mt-3">View Work</a>
+    </div>
+</section>
+
+<!-- About -->
+<section class="container text-center">
+    <div class="glass">
+        <h2>About Me</h2>
+        <p>
+            AI Engineer focused on neural networks, intelligent systems,
+            and building futuristic web experiences powered by data.
+        </p>
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="container">
+    <h2 class="text-center mb-5">Projects</h2>
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://picsum.photos/400/300?random=10">
+                <div class="p-3">
+                    <h5>AI Chatbot</h5>
+                    <p>Advanced conversational AI system.</p>
+                    <a href="#" class="btn btn-outline-info btn-sm">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://picsum.photos/400/300?random=20">
+                <div class="p-3">
+                    <h5>Vision AI</h5>
+                    <p>Image recognition with deep learning.</p>
+                    <a href="#" class="btn btn-outline-info btn-sm">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://picsum.photos/400/300?random=30">
+                <div class="p-3">
+                    <h5>Stock Predictor</h5>
+                    <p>ML model predicting trends.</p>
+                    <a href="#" class="btn btn-outline-info btn-sm">View</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="text-center p-3">
+    © 2026 AI Engineer Portfolio
+</footer>
+
+<script>
+// Typing
+const roles = ["Neural Networks", "AI Systems", "Machine Learning"];
+let i=0,j=0,txt="",del=false;
+
+function type(){
+    txt = roles[i];
+    if(!del){
+        document.querySelector(".typing").textContent = txt.substring(0,j++);
+        if(j>txt.length){ del=true; setTimeout(type,1000); return;}
+    } else {
+        document.querySelector(".typing").textContent = txt.substring(0,j--);
+        if(j===0){ del=false; i=(i+1)%roles.length;}
+    }
+    setTimeout(type, del?50:100);
+}
+type();
+
+// Cursor glow
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e=>{
+    cursor.style.top = e.clientY + "px";
+    cursor.style.left = e.clientX + "px";
+});
+
+// Particle background
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for(let i=0;i<80;i++){
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        dx: (Math.random()-0.5)*1,
+        dy: (Math.random()-0.5)*1
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p=>{
+        p.x += p.dx;
+        p.y += p.dy;
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,2,0,Math.PI*2);
+        ctx.fillStyle="#38bdf8";
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
