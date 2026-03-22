@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+    body {
+        margin: 0;
+        background: #020617;
+        font-family: Arial;
+    }
+
+    .topnav {
+        display: flex;
+        justify-content: center;
+        background: rgba(0,0,0,0.7);
+        backdrop-filter: blur(10px);
+    }
+
+    .topnav a {
+        color: #00f0ff;
+        padding: 14px 20px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .topnav a:hover {
+        text-shadow: 0 0 10px #00f0ff;
+    }
+
+    .topnav a.active {
+        color: #ffe066;
+        text-shadow: 0 0 10px #ffe066;
+    }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact Us</a>
+    </div>
+</body>
+</html>
