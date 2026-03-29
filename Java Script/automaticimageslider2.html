@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Slider App</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+}
+
+/* 🌌 Canvas background */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* 🎬 Slider */
+.slider {
+    position: relative;
+    width: 80%;
+    height: 80vh;
+    margin: auto;
+    top: 10vh;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.2);
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 1s;
+}
+
+.active {
+    opacity: 1;
+}
+
+img, video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 🧠 Caption */
+.caption {
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    font-size: 22px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+/* 🕹️ Controls */
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* 🎮 Game UI */
+.ui {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.xp-bar {
+    width: 200px;
+    height: 15px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.xp-fill {
+    height: 100%;
+    width: 0%;
+    background: lime;
+}
+
+/* 🎵 Button */
+.music-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: black;
+    color: white;
+    border: 1px solid white;
+    padding: 8px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="slider">
+
+    <!-- Image -->
+    <div class="slide active">
+        <img src="https://picsum.photos/id/1015/1200/800">
+        <div class="caption"></div>
+    </div>
+
+    <!-- Video -->
+    <div class="slide">
+        <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted loop></video>
+        <div class="caption"></div>
+    </div>
+
+    <div class="slide">
+        <img src="https://picsum.photos/id/1016/1200/800">
+        <div class="caption"></div>
+    </div>
+
+    <button class="btn prev" onclick="changeSlide(-1)">❮</button>
+    <button class="btn next" onclick="changeSlide(1)">❯</button>
+
+</div>
+
+<!-- 🎮 UI -->
+<div class="ui">
+    <div>Level 1</div>
+    <div class="xp-bar">
+        <div class="xp-fill" id="xp"></div>
+    </div>
+</div>
+
+<!-- 🎵 Music -->
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+<audio id="music" loop src="https://www.bensound.com/bensound-music/bensound-creativeminds.mp3"></audio>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let captions = [
+    "A peaceful forest view 🌿",
+    "A cinematic video scene 🎬",
+    "Nature at its finest 🌄"
+];
+
+let index = 0;
+let xp = 0;
+
+// Show slide
+function showSlide(i) {
+    slides.forEach((s, idx) => {
+        s.classList.remove("active");
+
+        let video = s.querySelector("video");
+        if (video) video.pause();
+    });
+
+    slides[i].classList.add("active");
+
+    let video = slides[i].querySelector("video");
+    if (video) video.play();
+
+    // Caption (AI-ready)
+    slides[i].querySelector(".caption").innerText = captions[i];
+
+    // XP increase
+    xp += 10;
+    document.getElementById("xp").style.width = xp + "%";
+}
+
+// Change slide
+function changeSlide(n) {
+    index = (index + n + slides.length) % slides.length;
+    showSlide(index);
+}
+
+// Auto
+setInterval(() => changeSlide(1), 4000);
+
+// Keyboard
+document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") changeSlide(1);
+    if (e.key === "ArrowLeft") changeSlide(-1);
+});
+
+// Swipe (mobile)
+let startX = 0;
+document.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+document.addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) changeSlide(1);
+    if (endX - startX > 50) changeSlide(-1);
+});
+
+// 🎵 Music
+function toggleMusic() {
+    let music = document.getElementById("music");
+    music.paused ? music.play() : music.pause();
+}
+
+/* 🌌 Particle Background */
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 100; i++) {
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2
+    });
+}
+
+function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "white";
+
+    particles.forEach(p => {
+        p.y += 0.5;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>

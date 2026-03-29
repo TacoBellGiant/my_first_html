@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cool Image Slider</title>
+
+<style>
+    body {
+        margin: 0;
+        background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .slider {
+        position: relative;
+        width: 750px;
+        height: 500px;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .mySlides {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .active {
+        opacity: 1;
+    }
+
+    /* Buttons */
+    .btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.5);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 50%;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .btn:hover {
+        background: rgba(0,0,0,0.8);
+    }
+
+    /* Dots */
+    .dots {
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 5px;
+        background: rgba(255,255,255,0.5);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .dot.active-dot {
+        background: white;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="slider">
+    <img class="mySlides" src="https://media.istockphoto.com/id/1317323736/photo/a-view-up-into-the-trees-direction-sky.jpg?s=612x612&w=0&k=20&c=i4HYO7xhao7CkGy7Zc_8XSNX_iqG0vAwNsrH1ERmw2Q=">
+    <img class="mySlides" src="https://media.istockphoto.com/id/1550071750/photo/green-tea-tree-leaves-camellia-sinensis-in-organic-farm-sunlight-fresh-young-tender-bud.jpg?s=612x612&w=0&k=20&c=RC_xD5DY5qPH_hpqeOY1g1pM6bJgGJSssWYjVIvvoLw=">
+    <img class="mySlides" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJo7n7XXByw40QwFnGILGMq2BxD55PkKl8yA&s">
+    <img class="mySlides" src="https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg">
+    <img class="mySlides" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcT0QGetG2uzAvnYBjODTUeGzqZjpcfsUUQ&s">
+
+    <button class="btn prev" onclick="changeSlide(-1)">❮</button>
+    <button class="btn next" onclick="changeSlide(1)">❯</button>
+
+    <div class="dots"></div>
+</div>
+
+<script>
+let index = 0;
+const slides = document.getElementsByClassName("mySlides");
+const dotsContainer = document.querySelector(".dots");
+
+// Create dots
+for (let i = 0; i < slides.length; i++) {
+    let dot = document.createElement("span");
+    dot.classList.add("dot");
+    dot.onclick = () => showSlide(i);
+    dotsContainer.appendChild(dot);
+}
+
+const dots = document.getElementsByClassName("dot");
+
+function showSlide(n) {
+    index = n;
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+        dots[i].classList.remove("active-dot");
+    }
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active-dot");
+}
+
+function changeSlide(n) {
+    index += n;
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+    showSlide(index);
+}
+
+// Auto slide
+function autoSlide() {
+    changeSlide(1);
+    setTimeout(autoSlide, 3000);
+}
+
+// Start
+showSlide(index);
+autoSlide();
+</script>
+
+</body>
+</html>
