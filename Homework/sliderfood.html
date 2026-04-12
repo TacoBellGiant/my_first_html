@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Food Slider</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.slider {
+  width: 400px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  background: white;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide img {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+button {
+  background: #ff7a18;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #e66900;
+}
+</style>
+</head>
+<body>
+
+<div class="slider">
+  <div class="slides" id="slides">
+    <div class="slide"><img src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg"></div>
+    <div class="slide"><img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg"></div>
+    <div class="slide"><img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg"></div>
+    <div class="slide"><img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg"></div>
+    <div class="slide"><img src="https://images.pexels.com/photos/357756/pexels-photo-357756.jpeg"></div>
+  </div>
+
+  <div class="buttons">
+    <button onclick="prev()">Prev</button>
+    <button onclick="next()">Next</button>
+  </div>
+</div>
+
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+
+function updateSlide() {
+  slides.style.transform = `translateX(-${index * 400}px)`;
+}
+
+function next() {
+  index = (index + 1) % total;
+  updateSlide();
+}
+
+function prev() {
+  index = (index - 1 + total) % total;
+  updateSlide();
+}
+</script>
+
+</body>
+</html>
