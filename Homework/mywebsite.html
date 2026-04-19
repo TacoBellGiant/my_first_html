@@ -9,10 +9,14 @@ body {
   background: linear-gradient(to right, #4facfe, #43e97b);
   color: white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
   padding: 30px;
+  flex: 1;
 }
 
 .card {
@@ -37,6 +41,13 @@ img {
   width: 100%;
   border-radius: 10px;
   margin-top: 10px;
+}
+
+/* Footer styling */
+footer {
+  background: rgba(0,0,0,0.2);
+  padding: 15px;
+  font-size: 14px;
 }
 </style>
 </head>
@@ -73,6 +84,10 @@ img {
   </div>
 
 </div>
+
+<footer>
+  <p>© 2026 Viransh's Website | Made with 💻</p>
+</footer>
 
 </body>
 </html>
