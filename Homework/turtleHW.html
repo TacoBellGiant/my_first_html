@@ -1,0 +1,49 @@
+
+from turtle import *
+
+bgcolor("lightblue")
+speed(5)
+pensize(3)
+
+penup()
+goto(-250, 0)
+pendown()
+
+color("darkblue", "yellow")
+
+begin_fill()
+for i in range(3):
+    forward(120)
+    left(120)
+end_fill()
+
+penup()
+goto(-40, 0)
+pendown()
+
+color("green", "pink")
+
+begin_fill()
+for i in range(2):
+    forward(180)
+    left(90)
+    forward(100)
+    left(90)
+end_fill()
+
+penup()
+goto(220, 0)
+pendown()
+
+color("red", "orange")
+
+begin_fill()
+for i in range(6):
+    forward(80)
+    left(60)
+end_fill()
+
+hideturtle()
+
+done()
+```

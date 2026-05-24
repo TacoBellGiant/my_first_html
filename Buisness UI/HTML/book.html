@@ -1,0 +1,234 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book a Service | Two Guys & A Hose</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #ccc;
+}
+
+/* FORM CONTAINER */
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* INPUTS */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* LABEL */
+label {
+    font-weight: bold;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 15px;
+    background: #2ecc71;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #27ae60;
+}
+
+/* SMALL NOTE */
+.note {
+    text-align: center;
+    margin-top: 15px;
+    color: #bbb;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Book Your Service</h1>
+    <p>Friday • Saturday • Sunday only</p>
+</header>
+
+<div class="container">
+
+    <label>Full Name</label>
+    <input type="text" id="name">
+
+    <label>Phone Number</label>
+    <input type="tel" id="phone">
+
+    <label>Address</label>
+    <input type="text" id="address">
+
+    <label>Service Type</label>
+    <select id="service">
+        <option>Lawn Care</option>
+        <option>Car Wash</option>
+        <option>Window Cleaning</option>
+        <option>Trash Service</option>
+    </select>
+
+    <label>Select Date</label>
+    <input type="date" id="date">
+
+    <label>Notes (optional)</label>
+    <textarea id="notes" rows="4"></textarea>
+
+    <button onclick="submitBooking()">Confirm Booking</button>
+
+    <div class="note">
+        We only operate Friday, Saturday, and Sunday 🚀
+    </div>
+
+</div>
+
+<script>
+
+// DATE INPUT
+const dateInput = document.getElementById("date");
+
+// Set minimum date to today
+dateInput.min = new Date().toISOString().split("T")[0];
+
+// Check if selected date is Friday, Saturday, or Sunday
+dateInput.addEventListener("change", function () {
+
+    if (!this.value) return;
+
+    const selectedDate = new Date(this.value + "T00:00:00");
+
+    const day = selectedDate.getDay();
+
+    // Friday = 5
+    // Saturday = 6
+    // Sunday = 0
+
+    if (day !== 5 && day !== 6 && day !== 0) {
+
+        alert("⚠️ We only work Friday, Saturday, and Sunday.");
+
+        this.value = "";
+    }
+});
+
+
+/*
+====================================================
+MAIN BOOKING FUNCTION
+====================================================
+*/
+
+async function submitBooking() {
+
+    const bookingData = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        service: document.getElementById("service").value,
+        date: document.getElementById("date").value,
+        notes: document.getElementById("notes").value
+    };
+
+    // Basic validation
+    if (
+        !bookingData.name ||
+        !bookingData.phone ||
+        !bookingData.address ||
+        !bookingData.date
+    ) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    /*
+    ---------------------------------------------
+    PLACEHOLDER FOR BACKEND
+    ---------------------------------------------
+    Replace this later with:
+    - Google Sheets
+    - EmailJS
+    - Firebase
+    - Node.js backend
+    */
+
+    const SERVER_URL = "YOUR_GOOGLE_SCRIPT_OR_EMAILJS_URL_HERE";
+
+    try {
+
+        const response = await fetch(SERVER_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(bookingData)
+        });
+
+        const result = await response.json();
+
+        if (result.status === "time_taken") {
+            alert("⚠️ That time is already booked.");
+            return;
+        }
+
+        if (result.status === "day_full") {
+            alert("⚠️ This day already has 3 bookings.");
+            return;
+        }
+
+        alert("✅ Booking received! We will contact you soon 🚀");
+
+    } catch (err) {
+
+        console.log("No backend connected yet:", err);
+
+        alert("✅ Booking received! (No server connected yet)");
+    }
+}
+
+</script>
+
+</body>
+</html>
+```

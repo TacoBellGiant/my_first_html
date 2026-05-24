@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Window Cleaning – Two Guys & A Hose</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --black:#0a0a0a;
+    --dark:#111417;
+    --card:#161b22;
+    --green:#2ecc71;
+    --blue:#1e90ff;
+    --muted:#8899aa;
+    --white:#f0f4f8;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--black);
+    color:var(--white);
+}
+
+/* NAV */
+nav{
+    background:rgba(10,10,10,0.92);
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.nav-logo{
+    font-family:'Bebas Neue';
+    color:var(--green);
+    text-decoration:none;
+    font-size:26px;
+    letter-spacing:2px;
+}
+
+.nav-links a{
+    color:#aaa;
+    text-decoration:none;
+    margin-left:24px;
+}
+
+.nav-links a:hover{color:white;}
+
+/* HERO */
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    background:
+    linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-family:'Bebas Neue';
+    font-size:90px;
+    color:var(--blue);
+}
+
+.hero p{color:#b0bec5;margin:20px 0 30px;}
+
+.hero-btn{
+    background:var(--green);
+    color:#000;
+    padding:16px 36px;
+    border-radius:100px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* CARDS */
+.grid{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    padding:40px 20px;
+}
+
+.card{
+    background:var(--card);
+    width:300px;
+    padding:30px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.06);
+    transition:0.3s;
+}
+
+.card:hover{transform:translateY(-10px);}
+
+.price{
+    font-family:'Bebas Neue';
+    font-size:60px;
+    color:var(--blue);
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:var(--green);
+    border:none;
+    border-radius:12px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* BOOK */
+.booking{
+    background:var(--dark);
+    padding:100px 20px;
+    text-align:center;
+}
+
+input,textarea{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:#0f141a;
+    color:white;
+}
+
+.submit{
+    background:var(--green);
+    color:#000;
+    font-weight:800;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">Two Guys & A Hose</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="mowing.html">Lawn Care</a>
+        <a href="carwash.html">Car Washing</a>
+        <a href="window.html">Window Cleaning</a>
+        <a href="trash.html">Trash Service</a>
+        <a href="book.html">Book</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div>
+        <h1>Window Cleaning</h1>
+        <p>Crystal clear windows. No streaks. No hassle.</p>
+        <a class="hero-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</a>
+    </div>
+</section>
+
+<section class="grid">
+
+<div class="card" onclick="selectPackage('Basic Windows','$20')">
+    <h3>Basic</h3>
+    <div class="price">$20</div>
+    <p>Exterior window cleaning</p>
+    <button>Book</button>
+</div>
+
+<div class="card" onclick="selectPackage('Full Windows','$40')">
+    <h3>Full Clean</h3>
+    <div class="price">$40</div>
+    <p>Inside + outside</p>
+    <button>Book</button>
+</div>
+
+<div class="card" onclick="selectPackage('Premium Shine','$65')">
+    <h3>Premium</h3>
+    <div class="price">$65</div>
+    <p>Deep streak-free polish</p>
+    <button>Book</button>
+</div>
+
+</section>
+
+<section class="booking" id="booking">
+
+<h2>Book Window Service</h2>
+
+<form onsubmit="event.preventDefault(); alert('Booked! We will contact you soon.')">
+
+<input placeholder="Name" required>
+<input placeholder="Address" required>
+<input placeholder="Phone" required type="tel">
+<input type="date" required>
+<textarea placeholder="Notes"></textarea>
+
+<select id="package">
+    <option>Basic Windows - $20</option>
+    <option>Full Clean - $40</option>
+    <option>Premium Shine - $65</option>
+</select>
+
+<button class="submit">Confirm</button>
+
+</form>
+
+</section>
+
+<script>
+function selectPackage(name, price){
+    document.getElementById("package").value = name + " " + price;
+    document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
+

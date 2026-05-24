@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lawn Care – Two Guys & A Hose</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --black:#0a0a0a;
+    --dark:#111417;
+    --card:#161b22;
+    --green:#2ecc71;
+    --blue:#1e90ff;
+    --muted:#8899aa;
+    --white:#f0f4f8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--black);
+    color:var(--white);
+}
+
+/* NAV */
+nav{
+    background:rgba(10,10,10,0.92);
+    backdrop-filter:blur(10px);
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.nav-logo{
+    font-family:'Bebas Neue';
+    color:var(--green);
+    font-size:26px;
+    text-decoration:none;
+    letter-spacing:2px;
+}
+
+.nav-links a{
+    color:#aaa;
+    text-decoration:none;
+    margin-left:24px;
+    font-size:15px;
+    transition:0.2s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* HERO */
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    background:
+    linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-family:'Bebas Neue';
+    font-size:90px;
+    color:var(--green);
+}
+
+.hero p{
+    color:#b0bec5;
+    font-size:20px;
+    margin:20px 0 30px;
+}
+
+.hero-btn{
+    background:var(--green);
+    color:#000;
+    padding:16px 36px;
+    border-radius:100px;
+    font-weight:800;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+/* SECTION */
+.section-title{
+    text-align:center;
+    font-family:'Bebas Neue';
+    font-size:60px;
+    margin-top:70px;
+}
+
+.section-sub{
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:60px;
+}
+
+/* CARDS */
+.grid{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:20px;
+    width:300px;
+    padding:30px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.price{
+    font-family:'Bebas Neue';
+    font-size:60px;
+    color:var(--blue);
+    margin:10px 0;
+}
+
+.card ul{
+    list-style:none;
+    margin:20px 0;
+}
+
+.card ul li{
+    margin:10px 0;
+    color:#c0cdd8;
+}
+
+.card button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:var(--green);
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* BOOK SECTION */
+.booking{
+    padding:100px 20px;
+    background:var(--dark);
+    text-align:center;
+}
+
+form{
+    max-width:600px;
+    margin:auto;
+}
+
+input,textarea{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:#0f141a;
+    color:white;
+}
+
+.submit{
+    background:var(--green);
+    color:black;
+    font-weight:800;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">Two Guys & A Hose</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="mowing.html">Lawn Care</a>
+        <a href="carwash.html">Car Washing</a>
+        <a href="window.html">Window Cleaning</a>
+        <a href="trash.html">Trash Service</a>
+        <a href="book.html">Book</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div>
+        <h1>Lawn Care</h1>
+        <p>Clean cuts, clean yards, zero stress.</p>
+        <a class="hero-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Lawn Service</a>
+    </div>
+</section>
+
+<h2 class="section-title">Choose Your Lawn Package</h2>
+<p class="section-sub">Simple pricing. Professional results.</p>
+
+<section class="grid">
+
+    <div class="card" onclick="selectPackage('Basic Mow','$25')">
+        <h3>Basic Mow</h3>
+        <div class="price">$25</div>
+        <ul>
+            <li>✔ Lawn mowing</li>
+            <li>✔ Edge trim</li>
+            <li>✔ Cleanup</li>
+        </ul>
+        <button>Book Now</button>
+    </div>
+
+    <div class="card" onclick="selectPackage('Full Care','$45')">
+        <h3>Full Care</h3>
+        <div class="price">$45</div>
+        <ul>
+            <li>✔ Everything in Basic</li>
+            <li>✔ Hedge trimming</li>
+            <li>✔ Weed cleanup</li>
+        </ul>
+        <button>Book Now</button>
+    </div>
+
+    <div class="card" onclick="selectPackage('Premium Yard','$70')">
+        <h3>Premium Yard</h3>
+        <div class="price">$70</div>
+        <ul>
+            <li>✔ Everything included</li>
+            <li>✔ Deep cleanup</li>
+            <li>✔ Detailed edging</li>
+        </ul>
+        <button>Book Now</button>
+    </div>
+
+</section>
+
+<section class="booking" id="booking">
+
+<h2 class="section-title">Book Your Service</h2>
+
+<form onsubmit="event.preventDefault(); alert('Booking submitted! We will contact you soon.');">
+
+    <input type="text" placeholder="Full Name" required>
+    <input type="text" placeholder="Address" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <input type="date" required>
+    <textarea placeholder="Notes"></textarea>
+
+    <select id="package">
+        <option>Basic Mow - $25</option>
+        <option>Full Care - $45</option>
+        <option>Premium Yard - $70</option>
+    </select>
+
+    <button class="submit" type="submit">Confirm Booking</button>
+
+</form>
+
+</section>
+
+<script>
+function selectPackage(name, price){
+    document.getElementById('package').value = name + " " + price;
+    document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
+
