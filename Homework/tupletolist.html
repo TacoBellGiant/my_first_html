@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuple to List Converter</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #4facfe, #43e97b);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        text-align: center;
+        width: 400px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        border: none;
+        background: #4facfe;
+        color: white;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #2196f3;
+    }
+
+    .result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #222;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Tuple to List Converter</h1>
+
+    <p>Enter tuple values separated by commas:</p>
+
+    <input type="text" id="tupleInput" placeholder="Example: 1,2,3,4">
+
+    <br>
+
+    <button onclick="convertTuple()">Convert</button>
+
+    <div class="result" id="output"></div>
+</div>
+
+<script>
+function convertTuple() {
+    let tupleData = document.getElementById("tupleInput").value;
+
+    let tuple = tupleData.split(",");
+
+    let list = [...tuple];
+
+    document.getElementById("output").innerHTML =
+        "<b>Tuple:</b> (" + tuple.join(", ") + ")" +
+        "<br><b>List:</b> [" + list.join(", ") + "]";
+}
+</script>
+
+</body>
+</html>
